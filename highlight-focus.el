@@ -26,8 +26,10 @@
 (require 'face-remap)
 (defvar highlight-focus:last-buffer nil)
 (defvar highlight-focus:cookie nil)
-(defvar highlight-focus:background "white")
 (defvar highlight-focus:app-has-focus t)
+(defvar highlight-focus:face 'default)
+(defvar highlight-focus:face-property :background)
+(defvar highlight-focus:face-property-value "white")
 
 (defun highlight-focus:check ()
   "Check if focus has changed, and if so, update remapping."
@@ -39,7 +41,9 @@
       (setq highlight-focus:last-buffer current-buffer)
       (when current-buffer
         (setq highlight-focus:cookie
-              (face-remap-add-relative 'default :background highlight-focus:background))))))
+              (face-remap-add-relative highlight-focus:face
+                                       highlight-focus:face-property
+                                       highlight-focus:face-property-value))))))
 
 (defun highlight-focus:app-focus (state)
   (setq highlight-focus:app-has-focus state)
