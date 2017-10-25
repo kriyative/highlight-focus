@@ -4,6 +4,8 @@ Source: http://amitp.blogspot.com/2013/05/emacs-highlight-active-buffer.html
 
 This is an Emacs Lisp package for highlighting the active buffer by dynamically changing the value of a face property (defaults to the =:background= property of the ='default= face).
 
+[[screenshot.png]]
+
 * Usage
 #+BEGIN_SRC emacs-lisp
   ;; if you use el-get
