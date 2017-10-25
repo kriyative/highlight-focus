@@ -1,0 +1,19 @@
+#+title: highlight-focus
+
+Source: http://amitp.blogspot.com/2013/05/emacs-highlight-active-buffer.html
+
+This is an Emacs Lisp package for highlighting the active buffer by dynamically changing the value of a face property (defaults to the =:background= property of the ='default= face).
+
+* Usage
+#+BEGIN_SRC emacs-lisp
+  ;; if you use el-get
+  (el-get-bundle kriyative/highlight-focus)
+
+  ;; if you use use-package
+  (use-package highlight-focus
+    :config
+    ;; set the background of the mode-line
+    (setq highlight-focus:face 'mode-line
+          highlight-focus:face-property :background
+          highlight-focus:face-property-value "darkgreen"))
+#+END_SRC
