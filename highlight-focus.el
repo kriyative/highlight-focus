@@ -35,7 +35,9 @@
   "Check if focus has changed, and if so, update remapping."
   (let ((current-buffer (and highlight-focus:app-has-focus (current-buffer))))
     (unless (eq highlight-focus:last-buffer current-buffer)
-      (when (and highlight-focus:last-buffer highlight-focus:cookie)
+      (when (and highlight-focus:last-buffer
+                 (buffer-live-p highlight-focus:last-buffer)
+                 highlight-focus:cookie)
         (with-current-buffer highlight-focus:last-buffer
           (face-remap-remove-relative highlight-focus:cookie)))
       (setq highlight-focus:last-buffer current-buffer)
